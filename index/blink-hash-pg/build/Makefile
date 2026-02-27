@@ -188,6 +188,19 @@ blinkhash/fast:
 .PHONY : blinkhash/fast
 
 #=============================================================================
+# Target rules for targets named blinkhash_async
+
+# Build rule for target.
+blinkhash_async: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 blinkhash_async
+.PHONY : blinkhash_async
+
+# fast build rule for target.
+blinkhash_async/fast:
+	$(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/build
+.PHONY : blinkhash_async/fast
+
+#=============================================================================
 # Target rules for targets named test
 
 # Build rule for target.
@@ -265,6 +278,71 @@ test_string/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_string.dir/build.make test/CMakeFiles/test_string.dir/build
 .PHONY : test_string/fast
 
+#=============================================================================
+# Target rules for targets named bench_range_latency_sync
+
+# Build rule for target.
+bench_range_latency_sync: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_range_latency_sync
+.PHONY : bench_range_latency_sync
+
+# fast build rule for target.
+bench_range_latency_sync/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_latency_sync.dir/build.make test/CMakeFiles/bench_range_latency_sync.dir/build
+.PHONY : bench_range_latency_sync/fast
+
+#=============================================================================
+# Target rules for targets named bench_range_latency_async
+
+# Build rule for target.
+bench_range_latency_async: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_range_latency_async
+.PHONY : bench_range_latency_async
+
+# fast build rule for target.
+bench_range_latency_async/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_latency_async.dir/build.make test/CMakeFiles/bench_range_latency_async.dir/build
+.PHONY : bench_range_latency_async/fast
+
+#=============================================================================
+# Target rules for targets named bench_range_throughput_sync
+
+# Build rule for target.
+bench_range_throughput_sync: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_range_throughput_sync
+.PHONY : bench_range_throughput_sync
+
+# fast build rule for target.
+bench_range_throughput_sync/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_throughput_sync.dir/build.make test/CMakeFiles/bench_range_throughput_sync.dir/build
+.PHONY : bench_range_throughput_sync/fast
+
+#=============================================================================
+# Target rules for targets named bench_range_throughput_async
+
+# Build rule for target.
+bench_range_throughput_async: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_range_throughput_async
+.PHONY : bench_range_throughput_async
+
+# fast build rule for target.
+bench_range_throughput_async/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_throughput_async.dir/build.make test/CMakeFiles/bench_range_throughput_async.dir/build
+.PHONY : bench_range_throughput_async/fast
+
+#=============================================================================
+# Target rules for targets named bench_convert_count
+
+# Build rule for target.
+bench_convert_count: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bench_convert_count
+.PHONY : bench_convert_count
+
+# fast build rule for target.
+bench_convert_count/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_convert_count.dir/build.make test/CMakeFiles/bench_convert_count.dir/build
+.PHONY : bench_convert_count/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -278,7 +356,13 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... adapt"
+	@echo "... bench_convert_count"
+	@echo "... bench_range_latency_async"
+	@echo "... bench_range_latency_sync"
+	@echo "... bench_range_throughput_async"
+	@echo "... bench_range_throughput_sync"
 	@echo "... blinkhash"
+	@echo "... blinkhash_async"
 	@echo "... mixed"
 	@echo "... range"
 	@echo "... rdtsc"

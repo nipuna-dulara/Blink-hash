@@ -69,6 +69,22 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
   endif()
 endif()
 
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/libblinkhash_async.a")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  file(INSTALL DESTINATION "/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg" TYPE STATIC_LIBRARY FILES "/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/lib/libblinkhash_async.a")
+  if(EXISTS "$ENV{DESTDIR}/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/libblinkhash_async.a" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/libblinkhash_async.a")
+    execute_process(COMMAND "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib" "$ENV{DESTDIR}/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/libblinkhash_async.a")
+  endif()
+endif()
+
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)

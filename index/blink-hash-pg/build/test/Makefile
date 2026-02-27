@@ -245,6 +245,154 @@ test_string/fast:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_string.dir/build.make test/CMakeFiles/test_string.dir/build
 .PHONY : test_string/fast
 
+# Convenience name for target.
+test/CMakeFiles/bench_range_latency_sync.dir/rule:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/bench_range_latency_sync.dir/rule
+.PHONY : test/CMakeFiles/bench_range_latency_sync.dir/rule
+
+# Convenience name for target.
+bench_range_latency_sync: test/CMakeFiles/bench_range_latency_sync.dir/rule
+.PHONY : bench_range_latency_sync
+
+# fast build rule for target.
+bench_range_latency_sync/fast:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_latency_sync.dir/build.make test/CMakeFiles/bench_range_latency_sync.dir/build
+.PHONY : bench_range_latency_sync/fast
+
+# Convenience name for target.
+test/CMakeFiles/bench_range_latency_async.dir/rule:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/bench_range_latency_async.dir/rule
+.PHONY : test/CMakeFiles/bench_range_latency_async.dir/rule
+
+# Convenience name for target.
+bench_range_latency_async: test/CMakeFiles/bench_range_latency_async.dir/rule
+.PHONY : bench_range_latency_async
+
+# fast build rule for target.
+bench_range_latency_async/fast:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_latency_async.dir/build.make test/CMakeFiles/bench_range_latency_async.dir/build
+.PHONY : bench_range_latency_async/fast
+
+# Convenience name for target.
+test/CMakeFiles/bench_range_throughput_sync.dir/rule:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/bench_range_throughput_sync.dir/rule
+.PHONY : test/CMakeFiles/bench_range_throughput_sync.dir/rule
+
+# Convenience name for target.
+bench_range_throughput_sync: test/CMakeFiles/bench_range_throughput_sync.dir/rule
+.PHONY : bench_range_throughput_sync
+
+# fast build rule for target.
+bench_range_throughput_sync/fast:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_throughput_sync.dir/build.make test/CMakeFiles/bench_range_throughput_sync.dir/build
+.PHONY : bench_range_throughput_sync/fast
+
+# Convenience name for target.
+test/CMakeFiles/bench_range_throughput_async.dir/rule:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/bench_range_throughput_async.dir/rule
+.PHONY : test/CMakeFiles/bench_range_throughput_async.dir/rule
+
+# Convenience name for target.
+bench_range_throughput_async: test/CMakeFiles/bench_range_throughput_async.dir/rule
+.PHONY : bench_range_throughput_async
+
+# fast build rule for target.
+bench_range_throughput_async/fast:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_throughput_async.dir/build.make test/CMakeFiles/bench_range_throughput_async.dir/build
+.PHONY : bench_range_throughput_async/fast
+
+# Convenience name for target.
+test/CMakeFiles/bench_convert_count.dir/rule:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/bench_convert_count.dir/rule
+.PHONY : test/CMakeFiles/bench_convert_count.dir/rule
+
+# Convenience name for target.
+bench_convert_count: test/CMakeFiles/bench_convert_count.dir/rule
+.PHONY : bench_convert_count
+
+# fast build rule for target.
+bench_convert_count/fast:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_convert_count.dir/build.make test/CMakeFiles/bench_convert_count.dir/build
+.PHONY : bench_convert_count/fast
+
+bench_convert_count.o: bench_convert_count.cpp.o
+.PHONY : bench_convert_count.o
+
+# target to build an object file
+bench_convert_count.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_convert_count.dir/build.make test/CMakeFiles/bench_convert_count.dir/bench_convert_count.cpp.o
+.PHONY : bench_convert_count.cpp.o
+
+bench_convert_count.i: bench_convert_count.cpp.i
+.PHONY : bench_convert_count.i
+
+# target to preprocess a source file
+bench_convert_count.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_convert_count.dir/build.make test/CMakeFiles/bench_convert_count.dir/bench_convert_count.cpp.i
+.PHONY : bench_convert_count.cpp.i
+
+bench_convert_count.s: bench_convert_count.cpp.s
+.PHONY : bench_convert_count.s
+
+# target to generate assembly for a file
+bench_convert_count.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_convert_count.dir/build.make test/CMakeFiles/bench_convert_count.dir/bench_convert_count.cpp.s
+.PHONY : bench_convert_count.cpp.s
+
+bench_range_latency.o: bench_range_latency.cpp.o
+.PHONY : bench_range_latency.o
+
+# target to build an object file
+bench_range_latency.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_latency_sync.dir/build.make test/CMakeFiles/bench_range_latency_sync.dir/bench_range_latency.cpp.o
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_latency_async.dir/build.make test/CMakeFiles/bench_range_latency_async.dir/bench_range_latency.cpp.o
+.PHONY : bench_range_latency.cpp.o
+
+bench_range_latency.i: bench_range_latency.cpp.i
+.PHONY : bench_range_latency.i
+
+# target to preprocess a source file
+bench_range_latency.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_latency_sync.dir/build.make test/CMakeFiles/bench_range_latency_sync.dir/bench_range_latency.cpp.i
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_latency_async.dir/build.make test/CMakeFiles/bench_range_latency_async.dir/bench_range_latency.cpp.i
+.PHONY : bench_range_latency.cpp.i
+
+bench_range_latency.s: bench_range_latency.cpp.s
+.PHONY : bench_range_latency.s
+
+# target to generate assembly for a file
+bench_range_latency.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_latency_sync.dir/build.make test/CMakeFiles/bench_range_latency_sync.dir/bench_range_latency.cpp.s
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_latency_async.dir/build.make test/CMakeFiles/bench_range_latency_async.dir/bench_range_latency.cpp.s
+.PHONY : bench_range_latency.cpp.s
+
+bench_range_throughput.o: bench_range_throughput.cpp.o
+.PHONY : bench_range_throughput.o
+
+# target to build an object file
+bench_range_throughput.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_throughput_sync.dir/build.make test/CMakeFiles/bench_range_throughput_sync.dir/bench_range_throughput.cpp.o
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_throughput_async.dir/build.make test/CMakeFiles/bench_range_throughput_async.dir/bench_range_throughput.cpp.o
+.PHONY : bench_range_throughput.cpp.o
+
+bench_range_throughput.i: bench_range_throughput.cpp.i
+.PHONY : bench_range_throughput.i
+
+# target to preprocess a source file
+bench_range_throughput.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_throughput_sync.dir/build.make test/CMakeFiles/bench_range_throughput_sync.dir/bench_range_throughput.cpp.i
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_throughput_async.dir/build.make test/CMakeFiles/bench_range_throughput_async.dir/bench_range_throughput.cpp.i
+.PHONY : bench_range_throughput.cpp.i
+
+bench_range_throughput.s: bench_range_throughput.cpp.s
+.PHONY : bench_range_throughput.s
+
+# target to generate assembly for a file
+bench_range_throughput.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_throughput_sync.dir/build.make test/CMakeFiles/bench_range_throughput_sync.dir/bench_range_throughput.cpp.s
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/bench_range_throughput_async.dir/build.make test/CMakeFiles/bench_range_throughput_async.dir/bench_range_throughput.cpp.s
+.PHONY : bench_range_throughput.cpp.s
+
 mixed.o: mixed.cpp.o
 .PHONY : mixed.o
 
@@ -401,12 +549,26 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... bench_convert_count"
+	@echo "... bench_range_latency_async"
+	@echo "... bench_range_latency_sync"
+	@echo "... bench_range_throughput_async"
+	@echo "... bench_range_throughput_sync"
 	@echo "... mixed"
 	@echo "... range"
 	@echo "... rdtsc"
 	@echo "... test"
 	@echo "... test_string"
 	@echo "... timestamp"
+	@echo "... bench_convert_count.o"
+	@echo "... bench_convert_count.i"
+	@echo "... bench_convert_count.s"
+	@echo "... bench_range_latency.o"
+	@echo "... bench_range_latency.i"
+	@echo "... bench_range_latency.s"
+	@echo "... bench_range_throughput.o"
+	@echo "... bench_range_throughput.i"
+	@echo "... bench_range_throughput.s"
 	@echo "... mixed.o"
 	@echo "... mixed.i"
 	@echo "... mixed.s"

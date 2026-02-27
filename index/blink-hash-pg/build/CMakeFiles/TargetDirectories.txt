@@ -6,6 +6,7 @@
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/CMakeFiles/install/strip.dir
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/lib/CMakeFiles/adapt.dir
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/lib/CMakeFiles/blinkhash.dir
+/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/lib/CMakeFiles/blinkhash_async.dir
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/lib/CMakeFiles/edit_cache.dir
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/lib/CMakeFiles/rebuild_cache.dir
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/lib/CMakeFiles/list_install_components.dir
@@ -18,6 +19,11 @@
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test/CMakeFiles/mixed.dir
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test/CMakeFiles/timestamp.dir
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test/CMakeFiles/test_string.dir
+/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test/CMakeFiles/bench_range_latency_sync.dir
+/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test/CMakeFiles/bench_range_latency_async.dir
+/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test/CMakeFiles/bench_range_throughput_sync.dir
+/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test/CMakeFiles/bench_range_throughput_async.dir
+/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test/CMakeFiles/bench_convert_count.dir
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test/CMakeFiles/edit_cache.dir
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test/CMakeFiles/rebuild_cache.dir
 /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test/CMakeFiles/list_install_components.dir

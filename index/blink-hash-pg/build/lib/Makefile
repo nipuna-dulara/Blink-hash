@@ -189,6 +189,20 @@ blinkhash/fast:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/build
 .PHONY : blinkhash/fast
 
+# Convenience name for target.
+lib/CMakeFiles/blinkhash_async.dir/rule:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/CMakeFiles/blinkhash_async.dir/rule
+.PHONY : lib/CMakeFiles/blinkhash_async.dir/rule
+
+# Convenience name for target.
+blinkhash_async: lib/CMakeFiles/blinkhash_async.dir/rule
+.PHONY : blinkhash_async
+
+# fast build rule for target.
+blinkhash_async/fast:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/build
+.PHONY : blinkhash_async/fast
+
 Epoche.o: Epoche.cpp.o
 .PHONY : Epoche.o
 
@@ -196,6 +210,7 @@ Epoche.o: Epoche.cpp.o
 Epoche.cpp.o:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/Epoche.cpp.o
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/Epoche.cpp.o
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/Epoche.cpp.o
 .PHONY : Epoche.cpp.o
 
 Epoche.i: Epoche.cpp.i
@@ -205,6 +220,7 @@ Epoche.i: Epoche.cpp.i
 Epoche.cpp.i:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/Epoche.cpp.i
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/Epoche.cpp.i
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/Epoche.cpp.i
 .PHONY : Epoche.cpp.i
 
 Epoche.s: Epoche.cpp.s
@@ -214,6 +230,7 @@ Epoche.s: Epoche.cpp.s
 Epoche.cpp.s:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/Epoche.cpp.s
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/Epoche.cpp.s
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/Epoche.cpp.s
 .PHONY : Epoche.cpp.s
 
 hash.o: hash.cpp.o
@@ -223,6 +240,7 @@ hash.o: hash.cpp.o
 hash.cpp.o:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/hash.cpp.o
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/hash.cpp.o
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/hash.cpp.o
 .PHONY : hash.cpp.o
 
 hash.i: hash.cpp.i
@@ -232,6 +250,7 @@ hash.i: hash.cpp.i
 hash.cpp.i:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/hash.cpp.i
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/hash.cpp.i
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/hash.cpp.i
 .PHONY : hash.cpp.i
 
 hash.s: hash.cpp.s
@@ -241,6 +260,7 @@ hash.s: hash.cpp.s
 hash.cpp.s:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/hash.cpp.s
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/hash.cpp.s
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/hash.cpp.s
 .PHONY : hash.cpp.s
 
 inode.o: inode.cpp.o
@@ -250,6 +270,7 @@ inode.o: inode.cpp.o
 inode.cpp.o:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/inode.cpp.o
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/inode.cpp.o
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/inode.cpp.o
 .PHONY : inode.cpp.o
 
 inode.i: inode.cpp.i
@@ -259,6 +280,7 @@ inode.i: inode.cpp.i
 inode.cpp.i:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/inode.cpp.i
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/inode.cpp.i
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/inode.cpp.i
 .PHONY : inode.cpp.i
 
 inode.s: inode.cpp.s
@@ -268,6 +290,7 @@ inode.s: inode.cpp.s
 inode.cpp.s:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/inode.cpp.s
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/inode.cpp.s
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/inode.cpp.s
 .PHONY : inode.cpp.s
 
 lnode.o: lnode.cpp.o
@@ -277,6 +300,7 @@ lnode.o: lnode.cpp.o
 lnode.cpp.o:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/lnode.cpp.o
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/lnode.cpp.o
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/lnode.cpp.o
 .PHONY : lnode.cpp.o
 
 lnode.i: lnode.cpp.i
@@ -286,6 +310,7 @@ lnode.i: lnode.cpp.i
 lnode.cpp.i:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/lnode.cpp.i
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/lnode.cpp.i
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/lnode.cpp.i
 .PHONY : lnode.cpp.i
 
 lnode.s: lnode.cpp.s
@@ -295,6 +320,7 @@ lnode.s: lnode.cpp.s
 lnode.cpp.s:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/lnode.cpp.s
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/lnode.cpp.s
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/lnode.cpp.s
 .PHONY : lnode.cpp.s
 
 lnode_btree.o: lnode_btree.cpp.o
@@ -304,6 +330,7 @@ lnode_btree.o: lnode_btree.cpp.o
 lnode_btree.cpp.o:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/lnode_btree.cpp.o
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/lnode_btree.cpp.o
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/lnode_btree.cpp.o
 .PHONY : lnode_btree.cpp.o
 
 lnode_btree.i: lnode_btree.cpp.i
@@ -313,6 +340,7 @@ lnode_btree.i: lnode_btree.cpp.i
 lnode_btree.cpp.i:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/lnode_btree.cpp.i
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/lnode_btree.cpp.i
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/lnode_btree.cpp.i
 .PHONY : lnode_btree.cpp.i
 
 lnode_btree.s: lnode_btree.cpp.s
@@ -322,6 +350,7 @@ lnode_btree.s: lnode_btree.cpp.s
 lnode_btree.cpp.s:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/lnode_btree.cpp.s
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/lnode_btree.cpp.s
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/lnode_btree.cpp.s
 .PHONY : lnode_btree.cpp.s
 
 lnode_hash.o: lnode_hash.cpp.o
@@ -331,6 +360,7 @@ lnode_hash.o: lnode_hash.cpp.o
 lnode_hash.cpp.o:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/lnode_hash.cpp.o
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/lnode_hash.cpp.o
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/lnode_hash.cpp.o
 .PHONY : lnode_hash.cpp.o
 
 lnode_hash.i: lnode_hash.cpp.i
@@ -340,6 +370,7 @@ lnode_hash.i: lnode_hash.cpp.i
 lnode_hash.cpp.i:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/lnode_hash.cpp.i
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/lnode_hash.cpp.i
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/lnode_hash.cpp.i
 .PHONY : lnode_hash.cpp.i
 
 lnode_hash.s: lnode_hash.cpp.s
@@ -349,6 +380,7 @@ lnode_hash.s: lnode_hash.cpp.s
 lnode_hash.cpp.s:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/lnode_hash.cpp.s
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/lnode_hash.cpp.s
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/lnode_hash.cpp.s
 .PHONY : lnode_hash.cpp.s
 
 tree.o: tree.cpp.o
@@ -358,6 +390,7 @@ tree.o: tree.cpp.o
 tree.cpp.o:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/tree.cpp.o
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/tree.cpp.o
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/tree.cpp.o
 .PHONY : tree.cpp.o
 
 tree.i: tree.cpp.i
@@ -367,6 +400,7 @@ tree.i: tree.cpp.i
 tree.cpp.i:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/tree.cpp.i
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/tree.cpp.i
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/tree.cpp.i
 .PHONY : tree.cpp.i
 
 tree.s: tree.cpp.s
@@ -376,6 +410,7 @@ tree.s: tree.cpp.s
 tree.cpp.s:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/adapt.dir/build.make lib/CMakeFiles/adapt.dir/tree.cpp.s
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash.dir/build.make lib/CMakeFiles/blinkhash.dir/tree.cpp.s
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f lib/CMakeFiles/blinkhash_async.dir/build.make lib/CMakeFiles/blinkhash_async.dir/tree.cpp.s
 .PHONY : tree.cpp.s
 
 # Help Target
@@ -392,6 +427,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... adapt"
 	@echo "... blinkhash"
+	@echo "... blinkhash_async"
 	@echo "... Epoche.o"
 	@echo "... Epoche.i"
 	@echo "... Epoche.s"

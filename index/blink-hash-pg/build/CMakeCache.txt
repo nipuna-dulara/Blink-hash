@@ -234,6 +234,9 @@ adapt_LIB_DEPENDS:STATIC=general;TBB::tbb;
 //Dependencies for the target
 blinkhash_LIB_DEPENDS:STATIC=general;TBB::tbb;
 
+//Dependencies for the target
+blinkhash_async_LIB_DEPENDS:STATIC=general;TBB::tbb;
+
 
 ########################
 # INTERNAL cache entries
