@@ -37,7 +37,8 @@ target_link_libraries(bench_range_throughput_async blinkhash_async pthread)
 
 # ---- Conversion counter (async only) ----
 add_executable(bench_convert_count bench_convert_count.cpp)
-target_link_libraries(bench_convert_count blinkhash_async pthread)
+target_link_libraries(bench_convert_count blinkhash_async ${TBB_LIBRARIES})
+target_compile_definitions(bench_convert_count PRIVATE ADAPTATION ASYNC_ADAPT)
 ## factor analysis
 #add_executable(baseline_ timestamp.cpp)
 #target_link_libraries(baseline_ baseline pthread)

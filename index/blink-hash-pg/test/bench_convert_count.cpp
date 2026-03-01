@@ -14,7 +14,7 @@ using namespace BLINK_HASH;
 // when a conversion succeeds. Defined in tree.cpp under ASYNC_ADAPT.
 #ifdef ASYNC_ADAPT
 namespace BLINK_HASH {
-    extern std::atomic<uint64_t> async_convert_count;
+    std::atomic<uint64_t> async_convert_count{0};
 }
 #endif
 

@@ -157,20 +157,32 @@ int lnode_t<Key_t, Value_t>::range_lookup(Key_t key, Value_t* buf, int count, in
 	case HASH_NODE:
 		#ifdef ADAPTATION
 		#ifdef ASYNC_ADAPT
-		// Signal background conversion but DO NOT block the foreground thread. The background thread will check the flag and enqueue the node for conversion.
 		if(sibling_ptr != nullptr){
 			auto hash_node = static_cast<lnode_hash_t<Key_t, Value_t>*>(this);
+			auto state = hash_node->convert_state.load(std::memory_order_acquire);
+			
+			if(state == lnode_hash_t<Key_t, Value_t>::CONVERT_ACTIVE){
+				// Background worker is already converting — scan hash directly
+				// (this is the rare case; pays the ~400µs cost but avoids blocking
+				// on the convertlock that the worker holds)
+				break;  // fall through to hash range_lookup below
+			}
+			
+			// No one is converting yet — signal for background AND return -2
+			// so the caller (tree::range_lookup) converts inline.
+			// This gives us the best of both worlds:
+			//   - First scan: converts inline (sync, ~500µs, one-time cost)
+			//   - If inline convert fails (OLC): background worker retries
 			uint8_t expected = lnode_hash_t<Key_t, Value_t>::CONVERT_NONE;
 			hash_node->convert_state.compare_exchange_strong(
 				expected,
 				lnode_hash_t<Key_t, Value_t>::CONVERT_PENDING,
 				std::memory_order_acq_rel,
 				std::memory_order_relaxed);
-			// Flag is set. tree::range_lookup will check and enqueue.
-
+			return -2;  // caller does inline convert, same as sync path
 		}
 		#else
-		if(sibling_ptr != nullptr) // convert flag
+		if(sibling_ptr != nullptr)
 			return -2;
 		#endif
 		#endif

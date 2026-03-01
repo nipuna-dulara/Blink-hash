@@ -643,23 +643,29 @@ int btree_t<Key_t, Value_t>::range_lookup(Key_t min_key, int range, Value_t* buf
 	auto ret = leaf->range_lookup(min_key, buf, count, range, continued);
 	if(ret == -1)
 	    goto restart;
-#ifndef ASYNC_ADAPT
+#ifdef ASYNC_ADAPT
     else if(ret == -2){
+        // Try inline convert first (fast path — same as sync)
         auto ret_ = convert(leaf, leaf_vstart, threadEpocheInfo);
+        if(!ret_){
+            // OLC conflict — enqueue for background worker to retry
+            signal_convert(static_cast<node_t*>(leaf), leaf_vstart);
+        }
         goto restart;
     }
-#else
-    // When ASYNC_ADAPT is enabled, range_lookup never returns -2.
-    // The lnode_t dispatcher already flagged the node and let the
-    // hash scan proceed. If the flag was set, enqueue into the
-    // background worker pool (idempotent — duplicate enqueues are
-    // filtered by the CAS on convert_state).
+    // If we reach here with a hash node, a background worker is actively
+    // converting it. The hash scan result is already in buf. Continue.
     if(leaf->type == lnode_t<Key_t, Value_t>::HASH_NODE){
         auto hash_leaf = static_cast<lnode_hash_t<Key_t, Value_t>*>(leaf);
         if(hash_leaf->convert_state.load(std::memory_order_acquire)
                 == lnode_hash_t<Key_t, Value_t>::CONVERT_PENDING){
             signal_convert(static_cast<node_t*>(leaf), leaf_vstart);
         }
+    }
+#else
+    else if(ret == -2){
+        auto ret_ = convert(leaf, leaf_vstart, threadEpocheInfo);
+        goto restart;
     }
 #endif
 	continued = true;

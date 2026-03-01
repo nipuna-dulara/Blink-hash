@@ -1,16 +1,6 @@
 #ifndef BLINK_HASH_WAL_RECORD_H__
 #define BLINK_HASH_WAL_RECORD_H__
 
-/*
- * wal_record.h — WAL record format for B^link-hash
- *
- * Every mutation in the tree produces one or more WAL records.
- * Records are appended to thread-local buffers, drained through
- * the MPSC ring buffer, and flushed to disk by the I/O engine.
- *
- * Implements: Phase 1.1 of IMPLEMENTATION_SEQUENCE.md
- */
-
 #include <cstdint>
 #include <cstring>
 #include <atomic>
@@ -18,7 +8,7 @@
 namespace BLINK_HASH {
 namespace WAL {
 
-/* ─── record types ─────────────────────────────────────────────────── */
+/* record types */
 
 enum class RecordType : uint16_t {
     INVALID            = 0,
@@ -27,29 +17,29 @@ enum class RecordType : uint16_t {
     UPDATE             = 3,
     SPLIT_LEAF         = 4,
     SPLIT_INTERNAL     = 5,
-    CONVERT            = 6,      /* hash-leaf → btree-leaves */
+    CONVERT            = 6,      /* hash-leaf to btree-leaves */
     NEW_ROOT           = 7,
     STABILIZE          = 8,
     CHECKPOINT_BEGIN   = 10,
     CHECKPOINT_END     = 11,
 };
 
-/* ─── header — prefixes every record on disk ───────────────────────── */
+/* header — prefixes every record on disk */
 
 struct RecordHeader {
-    uint64_t  lsn;           /* log sequence number (byte offset) */
+    uint64_t  lsn;          
     uint32_t  total_size;    /* header + payload, in bytes         */
-    uint16_t  type;          /* RecordType cast to uint16_t        */
+    uint16_t  type;      
     uint16_t  crc16;         /* CRC-16/ARC of the payload bytes    */
 };
 static_assert(sizeof(RecordHeader) == 16, "WAL header must be 16 bytes");
 
-/* ─── per-type payloads ───────────────────────────────────────────── */
+/* per-type payloads  */
 
 struct InsertPayload {
     uint64_t  node_id;
     uint32_t  bucket_idx;
-    uint32_t  key_len;       /* actual key bytes (≤ key capacity)  */
+    uint32_t  key_len;     
     /* followed by: key_len bytes of key data                       */
     /* followed by: 8 bytes of value (uint64_t)                     */
 };
@@ -120,11 +110,9 @@ struct CheckpointEndPayload {
     uint64_t  end_lsn;
 };
 
-/* ─── serialization / deserialization ─────────────────────────────── */
+/* serialization / deserialization */
 
-/*
- * Compute CRC-16/ARC over a byte buffer.
- */
+
 uint16_t wal_crc16(const void* data, size_t len);
 
 /*
@@ -147,7 +135,7 @@ const void* wal_record_deserialize(const void* src,
                                    size_t available,
                                    RecordHeader* hdr_out);
 
-} // namespace WAL
-} // namespace BLINK_HASH
+} 
+} 
 
-#endif // BLINK_HASH_WAL_RECORD_H__
+#endif 
