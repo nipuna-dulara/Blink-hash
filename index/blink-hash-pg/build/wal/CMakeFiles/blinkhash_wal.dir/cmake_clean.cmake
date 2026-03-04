@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/blinkhash_wal.dir/wal_group_commit.cpp.o.d"
   "CMakeFiles/blinkhash_wal.dir/wal_record.cpp.o"
   "CMakeFiles/blinkhash_wal.dir/wal_record.cpp.o.d"
+  "CMakeFiles/blinkhash_wal.dir/wal_recovery.cpp.o"
+  "CMakeFiles/blinkhash_wal.dir/wal_recovery.cpp.o.d"
   "CMakeFiles/blinkhash_wal.dir/wal_ring.cpp.o"
   "CMakeFiles/blinkhash_wal.dir/wal_ring.cpp.o.d"
   "CMakeFiles/blinkhash_wal.dir/wal_thread_buf.cpp.o"

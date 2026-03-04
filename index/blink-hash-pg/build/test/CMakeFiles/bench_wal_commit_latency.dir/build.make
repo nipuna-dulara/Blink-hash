@@ -96,6 +96,7 @@ bench_wal_commit_latency_EXTERNAL_OBJECTS =
 test/bench_wal_commit_latency: test/CMakeFiles/bench_wal_commit_latency.dir/bench_wal_commit_latency.cpp.o
 test/bench_wal_commit_latency: test/CMakeFiles/bench_wal_commit_latency.dir/build.make
 test/bench_wal_commit_latency: wal/libblinkhash_wal.a
+test/bench_wal_commit_latency: /opt/homebrew/opt/tbb/lib/libtbb.12.17.dylib
 test/bench_wal_commit_latency: test/CMakeFiles/bench_wal_commit_latency.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bench_wal_commit_latency"
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bench_wal_commit_latency.dir/link.txt --verbose=$(VERBOSE)

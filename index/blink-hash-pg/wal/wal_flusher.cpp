@@ -267,8 +267,11 @@ static uint64_t scan_max_lsn(const char* buf, size_t len) {
          * Check lsn==0 AND total_size==0 (not just the first byte),
          * because a valid record can have lsn % 256 == 0 giving a
          * zero first byte in little-endian. */
-        if (hdr.lsn == 0 && hdr.total_size == 0) {
-            scan += sizeof(RecordHeader);
+        if (hdr.lsn == 0) {
+            /* Skip all contiguous zero bytes — padding may not be
+             * a multiple of sizeof(RecordHeader). */
+            while (scan < end && *scan == 0)
+                ++scan;
             continue;
         }
 

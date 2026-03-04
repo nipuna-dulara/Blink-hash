@@ -40,7 +40,36 @@ class btree_t{
     #ifdef ASYNC_ADAPT
     stop_convert_workers();
     #endif
+    destroy();
 }
+
+	/* Walk every level via sibling chains and free all nodes. */
+	void destroy(){
+	    if(!root) return;
+	    node_t* level_head = root;
+	    while(level_head){
+		node_t* next_level_head = nullptr;
+		if(level_head->level > 0)
+		    next_level_head = level_head->leftmost_ptr;
+
+		node_t* cur = level_head;
+		while(cur){
+		    node_t* sib = cur->sibling_ptr;
+		    if(cur->level > 0){
+			delete static_cast<inode_t<Key_t>*>(cur);
+		    } else {
+			auto* leaf = static_cast<lnode_t<Key_t, Value_t>*>(cur);
+			if(leaf->type == lnode_t<Key_t, Value_t>::HASH_NODE)
+			    delete static_cast<lnode_hash_t<Key_t, Value_t>*>(leaf);
+			else
+			    delete static_cast<lnode_btree_t<Key_t, Value_t>*>(leaf);
+		    }
+		    cur = sib;
+		}
+		level_head = next_level_head;
+	    }
+	    root = nullptr;
+	}
 
 	int check_height();
 

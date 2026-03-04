@@ -385,6 +385,20 @@ test_wal_hooks/fast:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_wal_hooks.dir/build.make test/CMakeFiles/test_wal_hooks.dir/build
 .PHONY : test_wal_hooks/fast
 
+# Convenience name for target.
+test/CMakeFiles/test_wal_recovery.dir/rule:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_wal_recovery.dir/rule
+.PHONY : test/CMakeFiles/test_wal_recovery.dir/rule
+
+# Convenience name for target.
+test_wal_recovery: test/CMakeFiles/test_wal_recovery.dir/rule
+.PHONY : test_wal_recovery
+
+# fast build rule for target.
+test_wal_recovery/fast:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_wal_recovery.dir/build.make test/CMakeFiles/test_wal_recovery.dir/build
+.PHONY : test_wal_recovery/fast
+
 bench_convert_count.o: bench_convert_count.cpp.o
 .PHONY : bench_convert_count.o
 
@@ -679,6 +693,30 @@ test_wal_record.cpp.s:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_wal_record.dir/build.make test/CMakeFiles/test_wal_record.dir/test_wal_record.cpp.s
 .PHONY : test_wal_record.cpp.s
 
+test_wal_recovery.o: test_wal_recovery.cpp.o
+.PHONY : test_wal_recovery.o
+
+# target to build an object file
+test_wal_recovery.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_wal_recovery.dir/build.make test/CMakeFiles/test_wal_recovery.dir/test_wal_recovery.cpp.o
+.PHONY : test_wal_recovery.cpp.o
+
+test_wal_recovery.i: test_wal_recovery.cpp.i
+.PHONY : test_wal_recovery.i
+
+# target to preprocess a source file
+test_wal_recovery.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_wal_recovery.dir/build.make test/CMakeFiles/test_wal_recovery.dir/test_wal_recovery.cpp.i
+.PHONY : test_wal_recovery.cpp.i
+
+test_wal_recovery.s: test_wal_recovery.cpp.s
+.PHONY : test_wal_recovery.s
+
+# target to generate assembly for a file
+test_wal_recovery.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_wal_recovery.dir/build.make test/CMakeFiles/test_wal_recovery.dir/test_wal_recovery.cpp.s
+.PHONY : test_wal_recovery.cpp.s
+
 test_wal_ring.o: test_wal_ring.cpp.o
 .PHONY : test_wal_ring.o
 
@@ -753,6 +791,7 @@ help:
 	@echo "... test_wal_e2e"
 	@echo "... test_wal_hooks"
 	@echo "... test_wal_record"
+	@echo "... test_wal_recovery"
 	@echo "... test_wal_ring"
 	@echo "... timestamp"
 	@echo "... bench_convert_count.o"
@@ -791,6 +830,9 @@ help:
 	@echo "... test_wal_record.o"
 	@echo "... test_wal_record.i"
 	@echo "... test_wal_record.s"
+	@echo "... test_wal_recovery.o"
+	@echo "... test_wal_recovery.i"
+	@echo "... test_wal_recovery.s"
 	@echo "... test_wal_ring.o"
 	@echo "... test_wal_ring.i"
 	@echo "... test_wal_ring.s"

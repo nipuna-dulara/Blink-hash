@@ -96,6 +96,7 @@ test_wal_ring_EXTERNAL_OBJECTS =
 test/test_wal_ring: test/CMakeFiles/test_wal_ring.dir/test_wal_ring.cpp.o
 test/test_wal_ring: test/CMakeFiles/test_wal_ring.dir/build.make
 test/test_wal_ring: wal/libblinkhash_wal.a
+test/test_wal_ring: /opt/homebrew/opt/tbb/lib/libtbb.12.17.dylib
 test/test_wal_ring: test/CMakeFiles/test_wal_ring.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test_wal_ring"
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test_wal_ring.dir/link.txt --verbose=$(VERBOSE)

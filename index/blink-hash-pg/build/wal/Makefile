@@ -271,6 +271,30 @@ wal_record.cpp.s:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/wal_record.cpp.s
 .PHONY : wal_record.cpp.s
 
+wal_recovery.o: wal_recovery.cpp.o
+.PHONY : wal_recovery.o
+
+# target to build an object file
+wal_recovery.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/wal_recovery.cpp.o
+.PHONY : wal_recovery.cpp.o
+
+wal_recovery.i: wal_recovery.cpp.i
+.PHONY : wal_recovery.i
+
+# target to preprocess a source file
+wal_recovery.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/wal_recovery.cpp.i
+.PHONY : wal_recovery.cpp.i
+
+wal_recovery.s: wal_recovery.cpp.s
+.PHONY : wal_recovery.s
+
+# target to generate assembly for a file
+wal_recovery.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/wal_recovery.cpp.s
+.PHONY : wal_recovery.cpp.s
+
 wal_ring.o: wal_ring.cpp.o
 .PHONY : wal_ring.o
 
@@ -344,6 +368,9 @@ help:
 	@echo "... wal_record.o"
 	@echo "... wal_record.i"
 	@echo "... wal_record.s"
+	@echo "... wal_recovery.o"
+	@echo "... wal_recovery.i"
+	@echo "... wal_recovery.s"
 	@echo "... wal_ring.o"
 	@echo "... wal_ring.i"
 	@echo "... wal_ring.s"

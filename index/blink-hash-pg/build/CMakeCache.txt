@@ -43,7 +43,7 @@ CMAKE_CXX_COMPILER:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchain
 CMAKE_CXX_FLAGS:STRING=
 
 //Flags used by the CXX compiler during DEBUG builds.
-CMAKE_CXX_FLAGS_DEBUG:STRING=-g
+CMAKE_CXX_FLAGS_DEBUG:STRING=-g -fsanitize=address -fno-omit-frame-pointer
 
 //Flags used by the CXX compiler during MINSIZEREL builds.
 CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
@@ -257,6 +257,9 @@ blinkhash_LIB_DEPENDS:STATIC=general;TBB::tbb;general;blinkhash_wal;
 
 //Dependencies for the target
 blinkhash_async_LIB_DEPENDS:STATIC=general;TBB::tbb;general;blinkhash_wal;
+
+//Dependencies for the target
+blinkhash_wal_LIB_DEPENDS:STATIC=general;TBB::tbb;
 
 
 ########################

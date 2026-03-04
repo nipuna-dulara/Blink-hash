@@ -86,4 +86,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "test/CMakeFiles/test_wal_e2e.dir/DependInfo.cmake"
   "test/CMakeFiles/bench_wal_commit_latency.dir/DependInfo.cmake"
   "test/CMakeFiles/test_wal_hooks.dir/DependInfo.cmake"
+  "test/CMakeFiles/test_wal_recovery.dir/DependInfo.cmake"
   )

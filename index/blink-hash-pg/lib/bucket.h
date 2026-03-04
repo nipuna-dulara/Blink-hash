@@ -27,6 +27,9 @@ struct bucket_t{
     entry_t<Key_t, Value_t> entry[entry_num];
 
     bucket_t(): lock(0){
+	#ifdef LINKED
+	state = STABLE;
+	#endif
 	#ifdef FINGERPRINT
 	memset(fingerprints, 0, sizeof(uint8_t)*entry_num);
 	#else

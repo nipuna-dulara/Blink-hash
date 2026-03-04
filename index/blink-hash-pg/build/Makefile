@@ -421,6 +421,19 @@ test_wal_hooks/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_wal_hooks.dir/build.make test/CMakeFiles/test_wal_hooks.dir/build
 .PHONY : test_wal_hooks/fast
 
+#=============================================================================
+# Target rules for targets named test_wal_recovery
+
+# Build rule for target.
+test_wal_recovery: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_wal_recovery
+.PHONY : test_wal_recovery
+
+# fast build rule for target.
+test_wal_recovery/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_wal_recovery.dir/build.make test/CMakeFiles/test_wal_recovery.dir/build
+.PHONY : test_wal_recovery/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -451,6 +464,7 @@ help:
 	@echo "... test_wal_e2e"
 	@echo "... test_wal_hooks"
 	@echo "... test_wal_record"
+	@echo "... test_wal_recovery"
 	@echo "... test_wal_ring"
 	@echo "... timestamp"
 .PHONY : help

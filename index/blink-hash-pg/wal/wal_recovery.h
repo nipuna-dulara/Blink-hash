@@ -2,57 +2,87 @@
 #define BLINK_HASH_WAL_RECOVERY_H__
 
 /*
- * wal_recovery.h — Crash recovery: replay WAL records to rebuild the tree
- *
+
  * On startup, the recovery module:
  *   1. Reads the checkpoint manifest (if any) to find the snapshot
  *      file and the replay-start LSN.
  *   2. Loads the snapshot into memory (bulk insert).
- *   3. Sequentially replays all WAL records with LSN ≥ checkpoint_lsn.
- *
- * Implements: Phase 4 of IMPLEMENTATION_SEQUENCE.md
+ *   3. Sequentially replays all WAL records with LSN >= checkpoint_lsn.
+
  */
 
 #include <cstdint>
 #include <string>
+#include <vector>
+#include <functional>
 
 namespace BLINK_HASH {
 
-/* Forward declarations */
 template <typename K, typename V> class btree_t;
 struct ThreadInfo;
 
 namespace WAL {
 
-struct RecordHeader;   /* from wal_record.h */
+struct RecordHeader; 
 
-/* ── Recovery result ─────────────────────────────────────────────── */
+
 
 struct RecoveryStats {
-    uint64_t records_replayed;
-    uint64_t records_skipped;   /* LSN < from_lsn */
-    uint64_t last_lsn;
+    uint64_t records_total;       /* total records scanned          */
+    uint64_t records_replayed;   
+    uint64_t records_skipped;     /* LSN < from_lsn or structural   */
+    uint64_t inserts_replayed;
+    uint64_t deletes_replayed;
+    uint64_t updates_replayed;
+    uint64_t max_lsn;             /* highest LSN seen               */
+    uint64_t max_node_id;         /* highest node_id in payloads    */
     double   elapsed_sec;
 };
 
-/* ── Main recovery entry point ───────────────────────────────────── */
+
 
 /*
- * Open the WAL directory, locate the latest checkpoint manifest,
- * load the snapshot (if any), and replay all WAL records from
- * `checkpoint_lsn` forward.
+ * Find all WAL segment files in `wal_dir`, sorted by segment_id.
+ * Returns paths like: ["/tmp/wal/wal_000000.seg", "/tmp/wal/wal_000001.seg"]
+ */
+std::vector<std::string> find_wal_segments(const std::string& wal_dir);
+
+
+std::vector<char> read_all_segments(const std::string& wal_dir);
+
+
+
+/*
+ * Replay all WAL records from `wal_dir` into `tree`.
  *
- * On return, `tree` is fully reconstructed and ready for use.
- * Returns the LSN of the last replayed record.
+ * @param wal_dir      Path to the WAL directory containing .seg files
+ * @param tree         Empty tree to populate (or snapshot-loaded tree)
+ * @param threadInfo   Thread epoch info for tree operations
+ * @param from_lsn     Only replay records with LSN >= from_lsn (0 = all)
  *
- * Template parameters match btree_t<Key_t, Value_t>.
+ * On return:
+ *   - `tree` is fully reconstructed
+ *   - `stats_out` contains replay statistics
+ *   - Global LSN and node_id counters are re-seeded
  */
 template <typename Key_t, typename Value_t>
 RecoveryStats recover(const std::string& wal_dir,
                       btree_t<Key_t, Value_t>& tree,
-                      ThreadInfo& threadInfo);
+                      ThreadInfo& threadInfo,
+                      uint64_t from_lsn = 0);
 
-/* ── Individual redo handlers (one per RecordType) ───────────────── */
+/* Replay a single record (exposed for testing)*/
+
+
+template <typename Key_t, typename Value_t>
+bool replay_one_record(const RecordHeader& hdr,
+                       const void* payload,
+                       size_t payload_len,
+                       btree_t<Key_t, Value_t>& tree,
+                       ThreadInfo& threadInfo,
+                       RecoveryStats& stats);
+
+
 
 template <typename Key_t, typename Value_t>
 void redo_insert(const void* payload, size_t len,
@@ -69,31 +99,7 @@ void redo_update(const void* payload, size_t len,
                  btree_t<Key_t, Value_t>& tree,
                  ThreadInfo& threadInfo);
 
-/* Structural redo — for checkpoint-based recovery where the tree
- * is loaded from a snapshot and only the tail of the WAL is replayed.
- * These handle split/convert records that occurred after the snapshot. */
+}
+} 
 
-template <typename Key_t, typename Value_t>
-void redo_split_leaf(const void* payload, size_t len,
-                     btree_t<Key_t, Value_t>& tree,
-                     ThreadInfo& threadInfo);
-
-template <typename Key_t, typename Value_t>
-void redo_convert(const void* payload, size_t len,
-                  btree_t<Key_t, Value_t>& tree,
-                  ThreadInfo& threadInfo);
-
-/* ── WAL segment scanning ────────────────────────────────────────── */
-
-/*
- * Scan WAL segment files in `wal_dir` and return the (min_lsn, max_lsn)
- * across all segments.
- */
-void scan_wal_segments(const std::string& wal_dir,
-                       uint64_t& min_lsn_out,
-                       uint64_t& max_lsn_out);
-
-} // namespace WAL
-} // namespace BLINK_HASH
-
-#endif // BLINK_HASH_WAL_RECOVERY_H__
+#endif 
