@@ -1,4 +1,10 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/blinkhash_wal.dir/bh_buffer_pool.cpp.o"
+  "CMakeFiles/blinkhash_wal.dir/bh_buffer_pool.cpp.o.d"
+  "CMakeFiles/blinkhash_wal.dir/bh_node_map.cpp.o"
+  "CMakeFiles/blinkhash_wal.dir/bh_node_map.cpp.o.d"
+  "CMakeFiles/blinkhash_wal.dir/bh_page.cpp.o"
+  "CMakeFiles/blinkhash_wal.dir/bh_page.cpp.o.d"
   "CMakeFiles/blinkhash_wal.dir/wal_checkpoint.cpp.o"
   "CMakeFiles/blinkhash_wal.dir/wal_checkpoint.cpp.o.d"
   "CMakeFiles/blinkhash_wal.dir/wal_emitter.cpp.o"

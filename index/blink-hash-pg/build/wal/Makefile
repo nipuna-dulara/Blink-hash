@@ -175,6 +175,78 @@ blinkhash_wal/fast:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/build
 .PHONY : blinkhash_wal/fast
 
+bh_buffer_pool.o: bh_buffer_pool.cpp.o
+.PHONY : bh_buffer_pool.o
+
+# target to build an object file
+bh_buffer_pool.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/bh_buffer_pool.cpp.o
+.PHONY : bh_buffer_pool.cpp.o
+
+bh_buffer_pool.i: bh_buffer_pool.cpp.i
+.PHONY : bh_buffer_pool.i
+
+# target to preprocess a source file
+bh_buffer_pool.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/bh_buffer_pool.cpp.i
+.PHONY : bh_buffer_pool.cpp.i
+
+bh_buffer_pool.s: bh_buffer_pool.cpp.s
+.PHONY : bh_buffer_pool.s
+
+# target to generate assembly for a file
+bh_buffer_pool.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/bh_buffer_pool.cpp.s
+.PHONY : bh_buffer_pool.cpp.s
+
+bh_node_map.o: bh_node_map.cpp.o
+.PHONY : bh_node_map.o
+
+# target to build an object file
+bh_node_map.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/bh_node_map.cpp.o
+.PHONY : bh_node_map.cpp.o
+
+bh_node_map.i: bh_node_map.cpp.i
+.PHONY : bh_node_map.i
+
+# target to preprocess a source file
+bh_node_map.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/bh_node_map.cpp.i
+.PHONY : bh_node_map.cpp.i
+
+bh_node_map.s: bh_node_map.cpp.s
+.PHONY : bh_node_map.s
+
+# target to generate assembly for a file
+bh_node_map.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/bh_node_map.cpp.s
+.PHONY : bh_node_map.cpp.s
+
+bh_page.o: bh_page.cpp.o
+.PHONY : bh_page.o
+
+# target to build an object file
+bh_page.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/bh_page.cpp.o
+.PHONY : bh_page.cpp.o
+
+bh_page.i: bh_page.cpp.i
+.PHONY : bh_page.i
+
+# target to preprocess a source file
+bh_page.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/bh_page.cpp.i
+.PHONY : bh_page.cpp.i
+
+bh_page.s: bh_page.cpp.s
+.PHONY : bh_page.s
+
+# target to generate assembly for a file
+bh_page.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f wal/CMakeFiles/blinkhash_wal.dir/build.make wal/CMakeFiles/blinkhash_wal.dir/bh_page.cpp.s
+.PHONY : bh_page.cpp.s
+
 wal_checkpoint.o: wal_checkpoint.cpp.o
 .PHONY : wal_checkpoint.o
 
@@ -380,6 +452,15 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... blinkhash_wal"
+	@echo "... bh_buffer_pool.o"
+	@echo "... bh_buffer_pool.i"
+	@echo "... bh_buffer_pool.s"
+	@echo "... bh_node_map.o"
+	@echo "... bh_node_map.i"
+	@echo "... bh_node_map.s"
+	@echo "... bh_page.o"
+	@echo "... bh_page.i"
+	@echo "... bh_page.s"
 	@echo "... wal_checkpoint.o"
 	@echo "... wal_checkpoint.i"
 	@echo "... wal_checkpoint.s"

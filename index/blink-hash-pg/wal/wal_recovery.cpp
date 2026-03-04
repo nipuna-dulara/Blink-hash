@@ -427,9 +427,13 @@ RecoveryStats recover(const std::string& wal_dir,
     if (stats.max_node_id > 0)
         reseed_node_id(stats.max_node_id);
 
-    /* Restore WAL state */
+    
     g_wal_enabled = was_enabled;
-
+   
+    if (g_node_map) {
+        g_node_map->clear();
+        g_node_map->build_from_tree(tree.get_root());
+    }
     auto t1 = std::chrono::steady_clock::now();
     stats.elapsed_sec = std::chrono::duration<double>(t1 - t0).count();
 

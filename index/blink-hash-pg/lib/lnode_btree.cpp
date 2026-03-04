@@ -1,5 +1,6 @@
 #include "lnode.h"
 #include "wal_emitter.h"
+#include "bh_node_map.h"
 
 namespace BLINK_HASH{
 
@@ -72,6 +73,9 @@ lnode_btree_t<Key_t, Value_t>* lnode_btree_t<Key_t, Value_t>::split(Key_t& split
     auto sibling = static_cast<lnode_t<Key_t, Value_t>*>(this->sibling_ptr);
     auto new_leaf = new lnode_btree_t<Key_t, Value_t>(this->sibling_ptr, new_cnt, this->level);
     new_leaf->node_id = WAL::alloc_node_id();
+    if (WAL::g_node_map)
+	WAL::g_node_map->register_node(new_leaf->node_id,
+				       static_cast<node_t*>(new_leaf));
     new_leaf->high_key = this->high_key;
 
     memcpy(new_leaf->entry, entry+half, sizeof(entry_t<Key_t, Value_t>)*new_cnt);

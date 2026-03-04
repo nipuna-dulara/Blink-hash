@@ -1,5 +1,6 @@
 #include "inode.h"
 #include "wal_emitter.h"
+#include "bh_node_map.h"
 
 namespace BLINK_HASH{
 
@@ -52,7 +53,10 @@ inode_t<Key_t>* inode_t<Key_t>::split(Key_t& split_key){
 
     int new_cnt = cnt-half-1;
     auto new_node = new inode_t<Key_t>(sibling_ptr, new_cnt, entry[half].value, level, high_key);
-	new_node->node_id = WAL::alloc_node_id(); 
+	new_node->node_id = WAL::alloc_node_id();
+	if (WAL::g_node_map)
+	    WAL::g_node_map->register_node(new_node->node_id,
+					   static_cast<node_t*>(new_node));
     memcpy(new_node->entry, entry+half+1, sizeof(entry_t<Key_t, node_t*>)*new_cnt);
 
     sibling_ptr = static_cast<node_t*>(new_node);
@@ -237,6 +241,9 @@ inode_t<Key_t>** inode_t<Key_t>::batch_insert_last_level(Key_t* key, node_t** va
 	    for(int i=0; i<new_num; i++){
 		new_nodes[i] = new inode_t<Key_t>(level);
 		new_nodes[i]->node_id = WAL::alloc_node_id();
+		if (WAL::g_node_map)
+		    WAL::g_node_map->register_node(new_nodes[i]->node_id,
+						   static_cast<node_t*>(new_nodes[i]));
 	    }
 
 	    auto old_sibling = sibling_ptr;
@@ -286,6 +293,9 @@ inode_t<Key_t>** inode_t<Key_t>::batch_insert_last_level(Key_t* key, node_t** va
 	    for(int i=0; i<new_num; i++){
 		new_nodes[i] = new inode_t<Key_t>(level);
 		new_nodes[i]->node_id = WAL::alloc_node_id();
+		if (WAL::g_node_map)
+		    WAL::g_node_map->register_node(new_nodes[i]->node_id,
+						   static_cast<node_t*>(new_nodes[i]));
 	    }
 
 	    auto old_sibling = sibling_ptr;
@@ -395,6 +405,9 @@ inode_t<Key_t>** inode_t<Key_t>::batch_insert(Key_t* key, node_t** value, int nu
 	    for(int i=0; i<new_num; i++){
 		new_nodes[i] = new inode_t<Key_t>(level);
 		new_nodes[i]->node_id = WAL::alloc_node_id();
+		if (WAL::g_node_map)
+		    WAL::g_node_map->register_node(new_nodes[i]->node_id,
+						   static_cast<node_t*>(new_nodes[i]));
 	    }
 
 	    auto old_sibling = sibling_ptr;
@@ -446,6 +459,9 @@ inode_t<Key_t>** inode_t<Key_t>::batch_insert(Key_t* key, node_t** value, int nu
 	    for(int i=0; i<new_num; i++){
 		new_nodes[i] = new inode_t<Key_t>(level);
 		new_nodes[i]->node_id = WAL::alloc_node_id();
+		if (WAL::g_node_map)
+		    WAL::g_node_map->register_node(new_nodes[i]->node_id,
+						   static_cast<node_t*>(new_nodes[i]));
 	    }
 
 	    auto old_sibling = sibling_ptr;

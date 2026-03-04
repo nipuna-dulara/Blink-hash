@@ -447,6 +447,32 @@ test_wal_checkpoint/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_wal_checkpoint.dir/build.make test/CMakeFiles/test_wal_checkpoint.dir/build
 .PHONY : test_wal_checkpoint/fast
 
+#=============================================================================
+# Target rules for targets named test_node_map
+
+# Build rule for target.
+test_node_map: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_node_map
+.PHONY : test_node_map
+
+# fast build rule for target.
+test_node_map/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_node_map.dir/build.make test/CMakeFiles/test_node_map.dir/build
+.PHONY : test_node_map/fast
+
+#=============================================================================
+# Target rules for targets named test_buffer_pool
+
+# Build rule for target.
+test_buffer_pool: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_buffer_pool
+.PHONY : test_buffer_pool
+
+# fast build rule for target.
+test_buffer_pool/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_buffer_pool.dir/build.make test/CMakeFiles/test_buffer_pool.dir/build
+.PHONY : test_buffer_pool/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -473,6 +499,8 @@ help:
 	@echo "... range"
 	@echo "... rdtsc"
 	@echo "... test"
+	@echo "... test_buffer_pool"
+	@echo "... test_node_map"
 	@echo "... test_string"
 	@echo "... test_wal_checkpoint"
 	@echo "... test_wal_e2e"

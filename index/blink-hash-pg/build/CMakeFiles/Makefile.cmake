@@ -88,4 +88,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "test/CMakeFiles/test_wal_hooks.dir/DependInfo.cmake"
   "test/CMakeFiles/test_wal_recovery.dir/DependInfo.cmake"
   "test/CMakeFiles/test_wal_checkpoint.dir/DependInfo.cmake"
+  "test/CMakeFiles/test_node_map.dir/DependInfo.cmake"
+  "test/CMakeFiles/test_buffer_pool.dir/DependInfo.cmake"
   )

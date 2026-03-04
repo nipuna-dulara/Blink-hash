@@ -413,6 +413,34 @@ test_wal_checkpoint/fast:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_wal_checkpoint.dir/build.make test/CMakeFiles/test_wal_checkpoint.dir/build
 .PHONY : test_wal_checkpoint/fast
 
+# Convenience name for target.
+test/CMakeFiles/test_node_map.dir/rule:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_node_map.dir/rule
+.PHONY : test/CMakeFiles/test_node_map.dir/rule
+
+# Convenience name for target.
+test_node_map: test/CMakeFiles/test_node_map.dir/rule
+.PHONY : test_node_map
+
+# fast build rule for target.
+test_node_map/fast:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_node_map.dir/build.make test/CMakeFiles/test_node_map.dir/build
+.PHONY : test_node_map/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_buffer_pool.dir/rule:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_buffer_pool.dir/rule
+.PHONY : test/CMakeFiles/test_buffer_pool.dir/rule
+
+# Convenience name for target.
+test_buffer_pool: test/CMakeFiles/test_buffer_pool.dir/rule
+.PHONY : test_buffer_pool
+
+# fast build rule for target.
+test_buffer_pool/fast:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_buffer_pool.dir/build.make test/CMakeFiles/test_buffer_pool.dir/build
+.PHONY : test_buffer_pool/fast
+
 bench_convert_count.o: bench_convert_count.cpp.o
 .PHONY : bench_convert_count.o
 
@@ -610,6 +638,54 @@ test.s: test.cpp.s
 test.cpp.s:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test.dir/build.make test/CMakeFiles/test.dir/test.cpp.s
 .PHONY : test.cpp.s
+
+test_buffer_pool.o: test_buffer_pool.cpp.o
+.PHONY : test_buffer_pool.o
+
+# target to build an object file
+test_buffer_pool.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_buffer_pool.dir/build.make test/CMakeFiles/test_buffer_pool.dir/test_buffer_pool.cpp.o
+.PHONY : test_buffer_pool.cpp.o
+
+test_buffer_pool.i: test_buffer_pool.cpp.i
+.PHONY : test_buffer_pool.i
+
+# target to preprocess a source file
+test_buffer_pool.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_buffer_pool.dir/build.make test/CMakeFiles/test_buffer_pool.dir/test_buffer_pool.cpp.i
+.PHONY : test_buffer_pool.cpp.i
+
+test_buffer_pool.s: test_buffer_pool.cpp.s
+.PHONY : test_buffer_pool.s
+
+# target to generate assembly for a file
+test_buffer_pool.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_buffer_pool.dir/build.make test/CMakeFiles/test_buffer_pool.dir/test_buffer_pool.cpp.s
+.PHONY : test_buffer_pool.cpp.s
+
+test_node_map.o: test_node_map.cpp.o
+.PHONY : test_node_map.o
+
+# target to build an object file
+test_node_map.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_node_map.dir/build.make test/CMakeFiles/test_node_map.dir/test_node_map.cpp.o
+.PHONY : test_node_map.cpp.o
+
+test_node_map.i: test_node_map.cpp.i
+.PHONY : test_node_map.i
+
+# target to preprocess a source file
+test_node_map.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_node_map.dir/build.make test/CMakeFiles/test_node_map.dir/test_node_map.cpp.i
+.PHONY : test_node_map.cpp.i
+
+test_node_map.s: test_node_map.cpp.s
+.PHONY : test_node_map.s
+
+# target to generate assembly for a file
+test_node_map.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_node_map.dir/build.make test/CMakeFiles/test_node_map.dir/test_node_map.cpp.s
+.PHONY : test_node_map.cpp.s
 
 test_string.o: test_string.cpp.o
 .PHONY : test_string.o
@@ -825,6 +901,8 @@ help:
 	@echo "... range"
 	@echo "... rdtsc"
 	@echo "... test"
+	@echo "... test_buffer_pool"
+	@echo "... test_node_map"
 	@echo "... test_string"
 	@echo "... test_wal_checkpoint"
 	@echo "... test_wal_e2e"
@@ -857,6 +935,12 @@ help:
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"
+	@echo "... test_buffer_pool.o"
+	@echo "... test_buffer_pool.i"
+	@echo "... test_buffer_pool.s"
+	@echo "... test_node_map.o"
+	@echo "... test_node_map.i"
+	@echo "... test_node_map.s"
 	@echo "... test_string.o"
 	@echo "... test_string.i"
 	@echo "... test_string.s"

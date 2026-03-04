@@ -272,6 +272,10 @@ void btree_t<Key_t, Value_t>::insert(Key_t key, Value_t value, ThreadInfo& epoch
 			        static_cast<uint8_t>(old_parent->level + 1));
 			}
 			new_root->node_id = WAL::alloc_node_id();
+			if (WAL::g_node_map)
+			    WAL::g_node_map->register_node(new_root->node_id,
+							static_cast<node_t*>(new_root));
+
 			root = static_cast<node_t*>(new_root);
 			old_parent->write_unlock();
 		    }
@@ -285,6 +289,9 @@ void btree_t<Key_t, Value_t>::insert(Key_t key, Value_t value, ThreadInfo& epoch
 	    if(root == leaf){ // current node is root
 		auto new_root = new inode_t<Key_t>(split_key, leaf, new_leaf, nullptr, root->level+1, (static_cast<lnode_t<Key_t, Value_t>*>(new_leaf))->high_key);
 		new_root->node_id = WAL::alloc_node_id();
+		if (WAL::g_node_map)
+		    WAL::g_node_map->register_node(new_root->node_id,
+						static_cast<node_t*>(new_root));
 		if (WAL::g_wal_enabled) {
 		    WAL::wal_emit_new_root(
 		        new_root->node_id,
@@ -368,6 +375,9 @@ void btree_t<Key_t, Value_t>::insert_key(Key_t key, node_t* value, node_t* prev)
 	if(node == root){ // if current nodes is root
 	    auto new_root = new inode_t<Key_t>(split_key, node, new_node, nullptr, node->level+1, new_node->high_key);
 	    new_root->node_id = WAL::alloc_node_id();
+	    if (WAL::g_node_map)
+		WAL::g_node_map->register_node(new_root->node_id,
+					       static_cast<node_t*>(new_root));
 	    root = static_cast<node_t*>(new_root);
 	    node->write_unlock();
 	}
@@ -556,6 +566,9 @@ inode_t<Key_t>** btree_t<Key_t, Value_t>::new_root_for_adjustment(Key_t* key, no
     for(int i=0; i<new_num; i++){
 	new_roots[i] = new inode_t<Key_t>(value[0]->level+1); // level
 	new_roots[i]->node_id = WAL::alloc_node_id();
+	if (WAL::g_node_map)
+	    WAL::g_node_map->register_node(new_roots[i]->node_id,
+					   static_cast<node_t*>(new_roots[i]));
 //	new_roots[i]->batch_insert(key, value, idx, num, batch_size);
 	if(i < new_num-1)
 	    new_roots[i]->sibling_ptr = static_cast<node_t*>(new_roots[i+1]);
@@ -646,6 +659,9 @@ void btree_t<Key_t, Value_t>::batch_insert(Key_t* key, node_t** value, int num, 
 
 	auto new_root = new inode_t<Key_t>(new_nodes[0]->level+1);
 	new_root->node_id = WAL::alloc_node_id();
+	if (WAL::g_node_map)
+	    WAL::g_node_map->register_node(new_root->node_id,
+					   static_cast<node_t*>(new_root));
 	new_root->insert_for_root(split_key, reinterpret_cast<node_t**>(new_nodes), static_cast<node_t*>(parent), new_num);
 	root = new_root;
 	parent->write_unlock();

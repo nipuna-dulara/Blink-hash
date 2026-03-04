@@ -6,6 +6,7 @@
 #include "Epoche.h"
 #include "Epoche.cpp"
 #include "wal_emitter.h"
+#include "bh_node_map.h"
 #include <queue>
 #include <mutex>
 #include <condition_variable>
@@ -29,6 +30,8 @@ class btree_t{
 	btree_t(){
     root = static_cast<node_t*>(new lnode_hash_t<Key_t, Value_t>());
     root->node_id = WAL::alloc_node_id();
+    if (WAL::g_node_map)
+        WAL::g_node_map->register_node(root->node_id, root);
     #ifndef FINGERPRINT
     memset(&EMPTY<Key_t>, 0, sizeof(EMPTY<Key_t>));
     #endif
@@ -55,6 +58,8 @@ class btree_t{
 		node_t* cur = level_head;
 		while(cur){
 		    node_t* sib = cur->sibling_ptr;
+		    if (WAL::g_node_map && cur->node_id != 0)
+			WAL::g_node_map->remove(cur->node_id);
 		    if(cur->level > 0){
 			delete static_cast<inode_t<Key_t>*>(cur);
 		    } else {
