@@ -67,6 +67,22 @@ target_link_libraries(test_node_map blinkhash blinkhash_wal pthread)
 
 add_executable(test_buffer_pool test_buffer_pool.cpp)
 target_link_libraries(test_buffer_pool blinkhash blinkhash_wal pthread)
+# ---- Phase 7 PG Bridge test (standalone, no PG required) ----
+add_executable(test_pg_bridge test_pg_bridge.cpp
+    ${CMAKE_SOURCE_DIR}/pg_blinkhash/src/blinkhash_core.cpp)
+target_include_directories(test_pg_bridge PRIVATE
+    ${CMAKE_SOURCE_DIR}/pg_blinkhash/src
+    ${CMAKE_SOURCE_DIR}/lib
+    ${CMAKE_SOURCE_DIR}/wal)
+target_link_libraries(test_pg_bridge blinkhash blinkhash_wal pthread)
+# ---- Phase 8 PG WAL Bridge test (standalone, no PG required) ----
+add_executable(test_pg_wal_bridge test_pg_wal_bridge.cpp
+    ${CMAKE_SOURCE_DIR}/pg_blinkhash/src/blinkhash_core.cpp)
+target_include_directories(test_pg_wal_bridge PRIVATE
+    ${CMAKE_SOURCE_DIR}/pg_blinkhash/src
+    ${CMAKE_SOURCE_DIR}/lib
+    ${CMAKE_SOURCE_DIR}/wal)
+target_link_libraries(test_pg_wal_bridge blinkhash blinkhash_wal pthread)
 ## factor analysis
 #add_executable(baseline_ timestamp.cpp)
 #target_link_libraries(baseline_ baseline pthread)

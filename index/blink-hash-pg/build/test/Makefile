@@ -441,6 +441,61 @@ test_buffer_pool/fast:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_buffer_pool.dir/build.make test/CMakeFiles/test_buffer_pool.dir/build
 .PHONY : test_buffer_pool/fast
 
+# Convenience name for target.
+test/CMakeFiles/test_pg_bridge.dir/rule:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_pg_bridge.dir/rule
+.PHONY : test/CMakeFiles/test_pg_bridge.dir/rule
+
+# Convenience name for target.
+test_pg_bridge: test/CMakeFiles/test_pg_bridge.dir/rule
+.PHONY : test_pg_bridge
+
+# fast build rule for target.
+test_pg_bridge/fast:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_bridge.dir/build.make test/CMakeFiles/test_pg_bridge.dir/build
+.PHONY : test_pg_bridge/fast
+
+# Convenience name for target.
+test/CMakeFiles/test_pg_wal_bridge.dir/rule:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/test_pg_wal_bridge.dir/rule
+.PHONY : test/CMakeFiles/test_pg_wal_bridge.dir/rule
+
+# Convenience name for target.
+test_pg_wal_bridge: test/CMakeFiles/test_pg_wal_bridge.dir/rule
+.PHONY : test_pg_wal_bridge
+
+# fast build rule for target.
+test_pg_wal_bridge/fast:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_wal_bridge.dir/build.make test/CMakeFiles/test_pg_wal_bridge.dir/build
+.PHONY : test_pg_wal_bridge/fast
+
+__/pg_blinkhash/src/blinkhash_core.o: __/pg_blinkhash/src/blinkhash_core.cpp.o
+.PHONY : __/pg_blinkhash/src/blinkhash_core.o
+
+# target to build an object file
+__/pg_blinkhash/src/blinkhash_core.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_bridge.dir/build.make test/CMakeFiles/test_pg_bridge.dir/__/pg_blinkhash/src/blinkhash_core.cpp.o
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_wal_bridge.dir/build.make test/CMakeFiles/test_pg_wal_bridge.dir/__/pg_blinkhash/src/blinkhash_core.cpp.o
+.PHONY : __/pg_blinkhash/src/blinkhash_core.cpp.o
+
+__/pg_blinkhash/src/blinkhash_core.i: __/pg_blinkhash/src/blinkhash_core.cpp.i
+.PHONY : __/pg_blinkhash/src/blinkhash_core.i
+
+# target to preprocess a source file
+__/pg_blinkhash/src/blinkhash_core.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_bridge.dir/build.make test/CMakeFiles/test_pg_bridge.dir/__/pg_blinkhash/src/blinkhash_core.cpp.i
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_wal_bridge.dir/build.make test/CMakeFiles/test_pg_wal_bridge.dir/__/pg_blinkhash/src/blinkhash_core.cpp.i
+.PHONY : __/pg_blinkhash/src/blinkhash_core.cpp.i
+
+__/pg_blinkhash/src/blinkhash_core.s: __/pg_blinkhash/src/blinkhash_core.cpp.s
+.PHONY : __/pg_blinkhash/src/blinkhash_core.s
+
+# target to generate assembly for a file
+__/pg_blinkhash/src/blinkhash_core.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_bridge.dir/build.make test/CMakeFiles/test_pg_bridge.dir/__/pg_blinkhash/src/blinkhash_core.cpp.s
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_wal_bridge.dir/build.make test/CMakeFiles/test_pg_wal_bridge.dir/__/pg_blinkhash/src/blinkhash_core.cpp.s
+.PHONY : __/pg_blinkhash/src/blinkhash_core.cpp.s
+
 bench_convert_count.o: bench_convert_count.cpp.o
 .PHONY : bench_convert_count.o
 
@@ -687,6 +742,54 @@ test_node_map.cpp.s:
 	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_node_map.dir/build.make test/CMakeFiles/test_node_map.dir/test_node_map.cpp.s
 .PHONY : test_node_map.cpp.s
 
+test_pg_bridge.o: test_pg_bridge.cpp.o
+.PHONY : test_pg_bridge.o
+
+# target to build an object file
+test_pg_bridge.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_bridge.dir/build.make test/CMakeFiles/test_pg_bridge.dir/test_pg_bridge.cpp.o
+.PHONY : test_pg_bridge.cpp.o
+
+test_pg_bridge.i: test_pg_bridge.cpp.i
+.PHONY : test_pg_bridge.i
+
+# target to preprocess a source file
+test_pg_bridge.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_bridge.dir/build.make test/CMakeFiles/test_pg_bridge.dir/test_pg_bridge.cpp.i
+.PHONY : test_pg_bridge.cpp.i
+
+test_pg_bridge.s: test_pg_bridge.cpp.s
+.PHONY : test_pg_bridge.s
+
+# target to generate assembly for a file
+test_pg_bridge.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_bridge.dir/build.make test/CMakeFiles/test_pg_bridge.dir/test_pg_bridge.cpp.s
+.PHONY : test_pg_bridge.cpp.s
+
+test_pg_wal_bridge.o: test_pg_wal_bridge.cpp.o
+.PHONY : test_pg_wal_bridge.o
+
+# target to build an object file
+test_pg_wal_bridge.cpp.o:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_wal_bridge.dir/build.make test/CMakeFiles/test_pg_wal_bridge.dir/test_pg_wal_bridge.cpp.o
+.PHONY : test_pg_wal_bridge.cpp.o
+
+test_pg_wal_bridge.i: test_pg_wal_bridge.cpp.i
+.PHONY : test_pg_wal_bridge.i
+
+# target to preprocess a source file
+test_pg_wal_bridge.cpp.i:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_wal_bridge.dir/build.make test/CMakeFiles/test_pg_wal_bridge.dir/test_pg_wal_bridge.cpp.i
+.PHONY : test_pg_wal_bridge.cpp.i
+
+test_pg_wal_bridge.s: test_pg_wal_bridge.cpp.s
+.PHONY : test_pg_wal_bridge.s
+
+# target to generate assembly for a file
+test_pg_wal_bridge.cpp.s:
+	cd /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_wal_bridge.dir/build.make test/CMakeFiles/test_pg_wal_bridge.dir/test_pg_wal_bridge.cpp.s
+.PHONY : test_pg_wal_bridge.cpp.s
+
 test_string.o: test_string.cpp.o
 .PHONY : test_string.o
 
@@ -903,6 +1006,8 @@ help:
 	@echo "... test"
 	@echo "... test_buffer_pool"
 	@echo "... test_node_map"
+	@echo "... test_pg_bridge"
+	@echo "... test_pg_wal_bridge"
 	@echo "... test_string"
 	@echo "... test_wal_checkpoint"
 	@echo "... test_wal_e2e"
@@ -911,6 +1016,9 @@ help:
 	@echo "... test_wal_recovery"
 	@echo "... test_wal_ring"
 	@echo "... timestamp"
+	@echo "... __/pg_blinkhash/src/blinkhash_core.o"
+	@echo "... __/pg_blinkhash/src/blinkhash_core.i"
+	@echo "... __/pg_blinkhash/src/blinkhash_core.s"
 	@echo "... bench_convert_count.o"
 	@echo "... bench_convert_count.i"
 	@echo "... bench_convert_count.s"
@@ -941,6 +1049,12 @@ help:
 	@echo "... test_node_map.o"
 	@echo "... test_node_map.i"
 	@echo "... test_node_map.s"
+	@echo "... test_pg_bridge.o"
+	@echo "... test_pg_bridge.i"
+	@echo "... test_pg_bridge.s"
+	@echo "... test_pg_wal_bridge.o"
+	@echo "... test_pg_wal_bridge.i"
+	@echo "... test_pg_wal_bridge.s"
 	@echo "... test_string.o"
 	@echo "... test_string.i"
 	@echo "... test_string.s"

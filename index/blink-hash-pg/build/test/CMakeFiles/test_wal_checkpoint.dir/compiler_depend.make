@@ -1015,6 +1015,7 @@ test/CMakeFiles/test_wal_checkpoint.dir/test_wal_checkpoint.cpp.o: /Users/shakir
   /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/lib/lnode.h \
   /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/lib/node.h \
   /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/lib/tree.h \
+  /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/wal/bh_node_map.h \
   /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/wal/wal_checkpoint.h \
   /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/wal/wal_emitter.h \
   /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/wal/wal_flusher.h \
@@ -1292,6 +1293,8 @@ test/CMakeFiles/test_wal_checkpoint.dir/test_wal_checkpoint.cpp.o: /Users/shakir
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/dirent.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/wchar.h:
+
+/Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/wal/bh_node_map.h:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk/usr/include/c++/v1/variant:
 

@@ -5,7 +5,7 @@ MODULE_big = blinkhash
 EXTENSION  = blinkhash
 DATA       = blinkhash--1.0.sql
 
-# ── PostgreSQL C sources ──
+# -- PostgreSQL C sources --
 SRCS_C = src/blinkhash_handler.c \
          src/blinkhash_build.c \
          src/blinkhash_insert.c \
@@ -14,28 +14,27 @@ SRCS_C = src/blinkhash_handler.c \
          src/blinkhash_cost.c \
          src/blinkhash_validate.c \
          src/blinkhash_utils.c \
-         src/blinkhash_wal.c \
+         src/blinkhash_am.c \
          src/blinkhash_page.c
-
+SRCS_C += src/blinkhash_wal.c
 OBJS = $(SRCS_C:.c=.o)
 
-# ── B^link-hash core C++ library (linked as a static lib) ──
-# The core library is built separately via CMake in ../lib/
-# and linked here as libblinkhash_core.a
-SHLIB_LINK += -L../build/lib -lblinkhash_core -lstdc++ -ltbb
+# -- C++ bridge source --
+SRCS_CXX = src/blinkhash_core.cpp
+CXX_OBJS = $(SRCS_CXX:.cpp=.o)
+OBJS += $(CXX_OBJS)
 
-# ── Include paths ──
+# -- B^link-hash core C++ library (linked as a static lib) --
+SHLIB_LINK += -L../build/lib -L../build/wal -L/opt/homebrew/opt/tbb/lib -lblinkhash -lblinkhash_wal -lstdc++ -ltbb
+
+# -- Include paths --
 PG_CPPFLAGS += -I../lib -I../wal -Isrc
-
-# ── PGXS ──
+PG_CPPFLAGS += -DBH_USE_PG_WAL
+# -- PGXS --
 PG_CONFIG ?= pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
 
-# ── Custom target: build the core C++ library first ──
-.PHONY: core
-core:
-	cd .. && mkdir -p build && cd build && cmake .. && make -j
-
-# Make the PG extension depend on the core library
-$(OBJS): core
+# -- Compile C++ bridge with clang++ --
+src/blinkhash_core.o: src/blinkhash_core.cpp
+	$(CXX) -std=c++17 -fPIC $(PG_CPPFLAGS) -I$(shell $(PG_CONFIG) --includedir-server) -I../lib -I../wal -I$(shell brew --prefix tbb)/include -DFINGERPRINT -DSAMPLING -DLINKED -DADAPTATION -c -o $@ $<

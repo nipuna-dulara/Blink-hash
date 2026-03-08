@@ -49,6 +49,12 @@ typedef struct xl_blinkhash_delete {
     /* followed by: key data */
 } xl_blinkhash_delete;
 
+typedef struct xl_blinkhash_update {
+    uint64      node_id;
+    uint16      key_len;
+    /* followed by: key data + 8-byte new value */
+} xl_blinkhash_update;
+
 typedef struct xl_blinkhash_split_leaf {
     uint64      old_leaf_id;
     uint64      new_leaf_id;
@@ -56,6 +62,36 @@ typedef struct xl_blinkhash_split_leaf {
     uint32      num_migrated;
     /* followed by: split key, then key/value pairs */
 } xl_blinkhash_split_leaf;
+
+typedef struct xl_blinkhash_split_internal {
+    uint64      inode_id;
+    uint64      new_child_id;
+    uint16      split_key_len;
+    /* followed by: split key */
+} xl_blinkhash_split_internal;
+
+typedef struct xl_blinkhash_convert {
+    uint64      old_hash_leaf_id;
+    uint32      num_new_leaves;
+    uint32      total_entries;
+    /* followed by: new_leaf_ids, split keys, then entries */
+} xl_blinkhash_convert;
+
+typedef struct xl_blinkhash_new_root {
+    uint64      new_root_id;
+    uint64      left_child_id;
+    uint64      right_child_id;
+    uint16      split_key_len;
+    uint8       level;
+    /* followed by: split key */
+} xl_blinkhash_new_root;
+
+typedef struct xl_blinkhash_stabilize {
+    uint64      leaf_id;
+    uint32      bucket_idx;
+    uint32      num_migrated;
+    /* followed by: migrated key/value pairs */
+} xl_blinkhash_stabilize;
 
 /* ─── Registration ───────────────────────────────────────────────── */
 
@@ -99,6 +135,50 @@ XLogRecPtr blinkhash_xlog_split_leaf(uint64 old_leaf_id,
                                      const void *entries,
                                      size_t entries_len);
 
+/*
+ * Emit a WAL record for an UPDATE operation.
+ */
+XLogRecPtr blinkhash_xlog_update(uint64 node_id,
+                                 const void *key_data,
+                                 uint16 key_len,
+                                 uint64 new_value);
+
+/*
+ * Emit a WAL record for a SPLIT_INTERNAL operation.
+ */
+XLogRecPtr blinkhash_xlog_split_internal(uint64 inode_id,
+                                         uint64 new_child_id,
+                                         const void *split_key,
+                                         uint16 split_key_len);
+
+/*
+ * Emit a WAL record for a CONVERT operation (hash leaf → btree leaves).
+ */
+XLogRecPtr blinkhash_xlog_convert(uint64 old_hash_leaf_id,
+                                  uint32 num_new_leaves,
+                                  uint32 total_entries,
+                                  const void *payload,
+                                  size_t payload_len);
+
+/*
+ * Emit a WAL record for a NEW_ROOT operation.
+ */
+XLogRecPtr blinkhash_xlog_new_root(uint64 new_root_id,
+                                   uint64 left_child_id,
+                                   uint64 right_child_id,
+                                   const void *split_key,
+                                   uint16 split_key_len,
+                                   uint8 level);
+
+/*
+ * Emit a WAL record for a STABILIZE operation.
+ */
+XLogRecPtr blinkhash_xlog_stabilize(uint64 leaf_id,
+                                    uint32 bucket_idx,
+                                    uint32 num_migrated,
+                                    const void *entries,
+                                    size_t entries_len);
+
 /* ─── Redo callbacks (called during crash recovery) ──────────────── */
 
 /*
@@ -113,8 +193,10 @@ void blinkhash_redo(XLogReaderState *record);
 void blinkhash_redo_insert(XLogReaderState *record);
 void blinkhash_redo_delete(XLogReaderState *record);
 void blinkhash_redo_split_leaf(XLogReaderState *record);
+void blinkhash_redo_split_internal(XLogReaderState *record);
 void blinkhash_redo_convert(XLogReaderState *record);
 void blinkhash_redo_new_root(XLogReaderState *record);
+void blinkhash_redo_stabilize(XLogReaderState *record);
 
 #ifdef __cplusplus
 }

@@ -473,6 +473,32 @@ test_buffer_pool/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_buffer_pool.dir/build.make test/CMakeFiles/test_buffer_pool.dir/build
 .PHONY : test_buffer_pool/fast
 
+#=============================================================================
+# Target rules for targets named test_pg_bridge
+
+# Build rule for target.
+test_pg_bridge: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_pg_bridge
+.PHONY : test_pg_bridge
+
+# fast build rule for target.
+test_pg_bridge/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_bridge.dir/build.make test/CMakeFiles/test_pg_bridge.dir/build
+.PHONY : test_pg_bridge/fast
+
+#=============================================================================
+# Target rules for targets named test_pg_wal_bridge
+
+# Build rule for target.
+test_pg_wal_bridge: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_pg_wal_bridge
+.PHONY : test_pg_wal_bridge
+
+# fast build rule for target.
+test_pg_wal_bridge/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/test_pg_wal_bridge.dir/build.make test/CMakeFiles/test_pg_wal_bridge.dir/build
+.PHONY : test_pg_wal_bridge/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -501,6 +527,8 @@ help:
 	@echo "... test"
 	@echo "... test_buffer_pool"
 	@echo "... test_node_map"
+	@echo "... test_pg_bridge"
+	@echo "... test_pg_wal_bridge"
 	@echo "... test_string"
 	@echo "... test_wal_checkpoint"
 	@echo "... test_wal_e2e"

@@ -21,6 +21,7 @@ extern "C" {
 #include "postgres.h"
 #include "storage/bufpage.h"
 #include "storage/block.h"
+#include "utils/rel.h"
 
 /* ─── Page layout constants ──────────────────────────────────────── */
 

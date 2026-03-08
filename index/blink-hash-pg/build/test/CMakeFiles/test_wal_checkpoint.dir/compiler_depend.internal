@@ -1016,6 +1016,7 @@ test/CMakeFiles/test_wal_checkpoint.dir/test_wal_checkpoint.cpp.o
  /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/lib/lnode.h
  /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/lib/node.h
  /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/lib/tree.h
+ /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/wal/bh_node_map.h
  /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/wal/wal_checkpoint.h
  /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/wal/wal_emitter.h
  /Users/shakir/Desktop/blinkhash/Blink-hash/index/blink-hash-pg/wal/wal_flusher.h

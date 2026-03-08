@@ -17,6 +17,7 @@ extern "C" {
 #include "postgres.h"
 #include "access/amapi.h"
 #include "access/genam.h"
+#include "nodes/execnodes.h"
 #include "nodes/pathnodes.h"
 #include "utils/selfuncs.h"
 

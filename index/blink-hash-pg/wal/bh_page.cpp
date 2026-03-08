@@ -136,7 +136,11 @@ uint16_t serialize_inode(const void* inode_raw, bh_page_t* page) {
     char* dst = page->payload;
     uint16_t off = 0;
 
-  
+    /* Populate page header metadata */
+    page->header.node_type = PageNodeType::INODE;
+    page->header.node_id   = node->node_id;
+    page->header.level     = static_cast<uint8_t>(node->level);
+
     int32_t cnt = node->cnt;
     std::memcpy(dst + off, &cnt, 4); off += 4;
 
@@ -237,6 +241,10 @@ uint16_t serialize_btree_leaf(const void* leaf_raw, bh_page_t* page) {
     char* dst = page->payload;
     uint16_t off = 0;
 
+    /* Populate page header metadata */
+    page->header.node_type = PageNodeType::LNODE_BTREE;
+    page->header.node_id   = leaf->node_id;
+    page->header.level     = static_cast<uint8_t>(leaf->level);
 
     int32_t cnt = leaf->get_cnt();
     std::memcpy(dst + off, &cnt, 4); off += 4;
@@ -322,6 +330,24 @@ uint16_t serialize_hash_leaf(const void* leaf_raw, bh_page_t* pages,
     const auto* leaf =
         static_cast<const lnode_hash_t<Key_t, Value_t>*>(leaf_raw);
     constexpr int num_buckets = lnode_hash_t<Key_t, Value_t>::cardinality;
+
+    /* Populate first page header metadata (extent head) */
+    pages[0].header.node_type      = PageNodeType::LNODE_HASH;
+    pages[0].header.node_id        = leaf->node_id;
+    pages[0].header.level          = static_cast<uint8_t>(leaf->level);
+    pages[0].header.flags         |= PAGE_FLAG_EXTENT;
+    pages[0].header.extent_id      = pages[0].header.page_id;
+    pages[0].header.extent_pages   = max_pages;
+    pages[0].header.page_in_extent = 0;
+    for (uint16_t i = 1; i < max_pages; i++) {
+        pages[i].header.node_type      = PageNodeType::LNODE_HASH;
+        pages[i].header.node_id        = leaf->node_id;
+        pages[i].header.level          = static_cast<uint8_t>(leaf->level);
+        pages[i].header.flags         |= PAGE_FLAG_EXTENT;
+        pages[i].header.extent_id      = pages[0].header.page_id;
+        pages[i].header.extent_pages   = max_pages;
+        pages[i].header.page_in_extent = i;
+    }
 
     ExtentWriter ew(pages, max_pages);
 
