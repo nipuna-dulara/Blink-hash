@@ -1,4 +1,4 @@
-# B^link-hash — Implementation Sequence & Engineering Plan
+# B^link-hash — Implementation Sequence & Engineering Plan  ---------------------------
 
 Step-by-step ordering for building a persistent, WAL-backed, PG-integrated
 B^link-hash engine.  Each phase is self-contained and testable before moving on.
