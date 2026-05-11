@@ -119,7 +119,29 @@ int btree_t<Key_t, Value_t>::check_height(){
 }
 
 template <typename Key_t, typename Value_t>
-void btree_t<Key_t, Value_t>::insert(Key_t key, Value_t value, ThreadInfo& epocheThreadInfo){
+void btree_t<Key_t, Value_t>::insert(Key_t key, Value_t value, ThreadInfo& epocheThreadInfo,
+						uint64_t* inserted_node_id,
+						uint32_t* bucket_idx){
+	if(inserted_node_id)
+		*inserted_node_id = 0;
+	if(bucket_idx)
+		*bucket_idx = 0;
+
+	auto set_insert_meta = [&](lnode_t<Key_t, Value_t>* target_leaf) {
+		uint32_t target_bucket = 0;
+		if(target_leaf->type == lnode_t<Key_t, Value_t>::HASH_NODE){
+			auto* hash_leaf = static_cast<lnode_hash_t<Key_t, Value_t>*>(target_leaf);
+			auto found_bucket = hash_leaf->find_bucket_index(key);
+			if(found_bucket != UINT32_MAX)
+				target_bucket = found_bucket;
+		}
+		if(inserted_node_id)
+			*inserted_node_id = static_cast<node_t*>(target_leaf)->node_id;
+		if(bucket_idx)
+			*bucket_idx = target_bucket;
+		return target_bucket;
+	};
+
     EpocheGuard epocheGuard(epocheThreadInfo);
     restart:
     auto cur = root;
@@ -170,10 +192,11 @@ void btree_t<Key_t, Value_t>::insert(Key_t key, Value_t value, ThreadInfo& epoch
     if(ret == -1) // leaf node has been split while inserting
 	goto restart;
     else if(ret == 0) {
+		uint32_t target_bucket = set_insert_meta(leaf);
 		if (WAL::g_wal_enabled) {
             WAL::wal_emit_insert(
                 static_cast<node_t*>(leaf)->node_id,
-                0, 
+                target_bucket,
                 &key, sizeof(Key_t),
                 static_cast<uint64_t>(value));
         }
@@ -184,6 +207,10 @@ void btree_t<Key_t, Value_t>::insert(Key_t key, Value_t value, ThreadInfo& epoch
 	auto new_leaf = leaf->split(split_key, key, value, leaf_vstart);
 	if(new_leaf == nullptr)
 	    goto restart; // another thread has already splitted this leaf node
+		lnode_t<Key_t, Value_t>* target_leaf = (split_key < key)
+		    ? static_cast<lnode_t<Key_t, Value_t>*>(new_leaf)
+		    : leaf;
+		uint32_t target_bucket = set_insert_meta(target_leaf);
 		/* WAL: log the split and the insert that triggered it */
 	if (WAL::g_wal_enabled) {
 	    WAL::wal_emit_split_leaf(
@@ -191,10 +218,8 @@ void btree_t<Key_t, Value_t>::insert(Key_t key, Value_t value, ThreadInfo& epoch
 	        static_cast<node_t*>(new_leaf)->node_id,
 	        &split_key, sizeof(Key_t));
 	    WAL::wal_emit_insert(
-	        (split_key < key)
-	            ? static_cast<node_t*>(new_leaf)->node_id
-	            : static_cast<node_t*>(leaf)->node_id,
-	        0, &key, sizeof(Key_t),
+	        static_cast<node_t*>(target_leaf)->node_id,
+	        target_bucket, &key, sizeof(Key_t),
 	        static_cast<uint64_t>(value));
 	}
 	if(stack_cnt){

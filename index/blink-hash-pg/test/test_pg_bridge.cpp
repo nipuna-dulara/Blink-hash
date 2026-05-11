@@ -14,6 +14,8 @@
  */
 
 #include "blinkhash_core.h"
+#include "bh_node_map.h"
+#include "tree.h"
 
 #include <cassert>
 #include <cstdio>
@@ -21,6 +23,9 @@
 #include <cstring>
 #include <vector>
 #include <chrono>
+
+using namespace BLINK_HASH::WAL;
+using namespace BLINK_HASH;
 
 /* ═══════════════════════════════════════════════════════════════════
  *  TID packing helpers (replicate blinkhash_utils.c logic for testing)
@@ -282,7 +287,48 @@ static void test_large_scale() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
- *  Test 6: Diagnostics
+ *  Test 6: Insert metadata
+ * ═══════════════════════════════════════════════════════════════════ */
+
+static void test_insert_metadata() {
+    printf("  [pg_bridge] insert metadata...\n");
+
+    node_map_init(64);
+
+    void *tree_raw = bh_tree_create('i');
+    assert(tree_raw != NULL);
+
+    auto *tree = static_cast<btree_t<key64_t, value64_t>*>(tree_raw);
+    void *ti = bh_get_thread_info(tree_raw, 'i');
+    assert(ti != NULL);
+
+    uint64_t key = 123456789ULL;
+    uint64_t val = pack_tid(77, 9);
+    uint64_t node_id = 0;
+    uint32_t bucket_idx = static_cast<uint32_t>(-1);
+
+    bh_insert_with_meta(tree_raw, 'i', &key, sizeof(key), val, ti,
+                        &node_id, &bucket_idx);
+
+    assert(node_id != 0);
+    assert(bucket_idx != static_cast<uint32_t>(-1));
+
+    auto *root = static_cast<lnode_hash_t<key64_t, value64_t>*>(tree->get_root());
+    assert(root != NULL);
+    assert(root->node_id == node_id);
+    assert(root->find_bucket_index(key) == bucket_idx);
+    assert(g_node_map != NULL);
+    assert(g_node_map->resolve(node_id) != NULL);
+
+    bh_free_thread_info(ti);
+    bh_tree_destroy(tree_raw, 'i');
+    node_map_destroy();
+
+    printf("  [PASS] insert metadata\n");
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+ *  Test 7: Diagnostics
  * ═══════════════════════════════════════════════════════════════════ */
 
 static void test_diagnostics() {
@@ -317,7 +363,8 @@ int main(int argc, char** argv) {
     if (start <= 3) test_range_lookup();
     if (start <= 4) test_tid_packing();
     if (start <= 5) test_large_scale();
-    if (start <= 6) test_diagnostics();
+    if (start <= 6) test_insert_metadata();
+    if (start <= 7) test_diagnostics();
     printf("All pg_bridge tests passed.\n");
     return 0;
 }

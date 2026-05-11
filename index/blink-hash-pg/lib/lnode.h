@@ -56,6 +56,8 @@ class lnode_t : public node_t{
 	void print();
 
 	double utilization();
+
+	uint32_t find_bucket_index(Key_t key) const;
 	
 };
 

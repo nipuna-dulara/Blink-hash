@@ -52,14 +52,17 @@ blinkhash_aminsert(Relation indexRelation,
         uint64 key = bh_datum_to_key64(values[0], state->key_typid, &ok);
         if (!ok)
             return false;
-        bh_insert(state->tree, 'i', &key, sizeof(key),
-                  packed_tid, state->thread_info);
+        uint64_t node_id = 0;
+        uint32_t bucket_idx = 0;
+        bh_insert_with_meta(state->tree, 'i', &key, sizeof(key),
+                            packed_tid, state->thread_info,
+                            &node_id, &bucket_idx);
 
         #ifdef BH_USE_PG_WAL
         if (RelationNeedsWAL(indexRelation))
         {
-            blinkhash_xlog_insert(/* node_id */ 0,
-                                  /* bucket_idx */ 0,
+            blinkhash_xlog_insert(node_id,
+                                  bucket_idx,
                                   &key, sizeof(key),
                                   packed_tid);
         }
@@ -69,14 +72,17 @@ blinkhash_aminsert(Relation indexRelation,
     {
         char key_buf[32];
         bh_datum_to_string_key(values[0], state->key_typid, key_buf, 32);
-        bh_insert(state->tree, 's', key_buf, 32,
-                  packed_tid, state->thread_info);
+        uint64_t node_id = 0;
+        uint32_t bucket_idx = 0;
+        bh_insert_with_meta(state->tree, 's', key_buf, 32,
+                            packed_tid, state->thread_info,
+                            &node_id, &bucket_idx);
 
         #ifdef BH_USE_PG_WAL
         if (RelationNeedsWAL(indexRelation))
         {
-            blinkhash_xlog_insert(/* node_id */ 0,
-                                  /* bucket_idx */ 0,
+            blinkhash_xlog_insert(node_id,
+                                  bucket_idx,
                                   key_buf, 32,
                                   packed_tid);
         }

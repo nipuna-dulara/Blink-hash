@@ -78,7 +78,9 @@ class btree_t{
 
 	int check_height();
 
-	void insert(Key_t key, Value_t value, ThreadInfo& threadEpocheInfo);
+	void insert(Key_t key, Value_t value, ThreadInfo& threadEpocheInfo,
+	            uint64_t* inserted_node_id = nullptr,
+	            uint32_t* bucket_idx = nullptr);
 	/* this function is called when root has been split by another threads */
 	void insert_key(Key_t key, node_t* value, node_t* prev);
 
