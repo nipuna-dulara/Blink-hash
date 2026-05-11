@@ -67,9 +67,11 @@ extern "C" void* bh_get_thread_info(void* tree, char key_class) {
 }
 
 
-extern "C" void bh_insert(void* tree, char key_class,
+static void bh_insert_impl(void* tree, char key_class,
                            const void* key_data, size_t key_len,
-                           uint64_t value, void* thread_info) {
+                           uint64_t value, void* thread_info,
+                           uint64_t* node_id_out,
+                           uint32_t* bucket_idx_out) {
     auto* ti = static_cast<ThreadInfo*>(thread_info);
 
     switch (key_class) {
@@ -78,17 +80,33 @@ extern "C" void bh_insert(void* tree, char key_class,
             memcpy(&key, key_data,
                    key_len < sizeof(key) ? key_len : sizeof(key));
             static_cast<btree_t<key64_t, value64_t>*>(tree)
-                ->insert(key, value, *ti);
+                ->insert(key, value, *ti, node_id_out, bucket_idx_out);
             break;
         }
         case 's': {
             StringKey key;
             key.setFromBytes(static_cast<const char*>(key_data), key_len);
             static_cast<btree_t<StringKey, value64_t>*>(tree)
-                ->insert(key, value, *ti);
+                ->insert(key, value, *ti, node_id_out, bucket_idx_out);
             break;
         }
     }
+}
+
+extern "C" void bh_insert(void* tree, char key_class,
+                           const void* key_data, size_t key_len,
+                           uint64_t value, void* thread_info) {
+    bh_insert_impl(tree, key_class, key_data, key_len, value, thread_info,
+                   nullptr, nullptr);
+}
+
+extern "C" void bh_insert_with_meta(void* tree, char key_class,
+                                     const void* key_data, size_t key_len,
+                                     uint64_t value, void* thread_info,
+                                     uint64_t* node_id_out,
+                                     uint32_t* bucket_idx_out) {
+    bh_insert_impl(tree, key_class, key_data, key_len, value, thread_info,
+                   node_id_out, bucket_idx_out);
 }
 
 extern "C" uint64_t bh_lookup(void* tree, char key_class,

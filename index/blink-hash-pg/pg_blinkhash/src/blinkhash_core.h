@@ -31,6 +31,13 @@ void bh_insert(void* tree, char key_class,
                uint64_t value,
                void* thread_info);
 
+void bh_insert_with_meta(void* tree, char key_class,
+                         const void* key_data, size_t key_len,
+                         uint64_t value,
+                         void* thread_info,
+                         uint64_t* node_id_out,
+                         uint32_t* bucket_idx_out);
+
 
 uint64_t bh_lookup(void* tree, char key_class,
                    const void* key_data, size_t key_len,

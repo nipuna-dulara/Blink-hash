@@ -145,7 +145,28 @@ lnode_hash_t<Key_t, Value_t>* lnode_hash_t<Key_t, Value_t>::split(Key_t& split_k
     };
 
     target_t target[HASH_FUNCS_NUM];
+
+
     for(int k=0; k<HASH_FUNCS_NUM; k++){
+	uint32_t lnode_hash_t<Key_t, Value_t>::find_bucket_index(Key_t key) const{
+		for(int j = 0; j < cardinality; j++){
+			const auto& b = bucket[j];
+			if(b.live_count == 0)
+				continue;
+			for(int i = 0; i < entry_num; i++){
+	#ifdef FINGERPRINT
+				if(b.fingerprints[i] == 0)
+					continue;
+	#else
+				if(b.entry[i].key == EMPTY<Key_t>)
+					continue;
+	#endif
+				if(b.entry[i].key == key)
+					return static_cast<uint32_t>(j);
+			}
+		}
+		return UINT32_MAX;
+	}
 	auto hash_key = h(&key, (size_t)sizeof(Key_t), k);
 	target[k].loc = hash_key % cardinality;
 	target[k].fingerprint = (_hash(hash_key) | 1);
